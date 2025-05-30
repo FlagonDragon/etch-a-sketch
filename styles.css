@@ -1,0 +1,25 @@
+/* * {
+    background-color: black;
+    color: red;
+} */
+
+#container {
+    display: flex;
+    background-color: green;
+    border: 0px dotted rgb(202, 160, 83);
+    flex-wrap: wrap;
+}
+
+#container div {
+    display: flex;
+    background-color: black;
+    color: black;
+    border: 1px solid lightblue;
+    margin: 0px;
+    flex: 1;
+}
+
+/* #container div:hover {
+    background-color: hotpink;
+    color: hotpink;
+} */
