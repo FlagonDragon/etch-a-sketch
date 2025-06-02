@@ -1,12 +1,21 @@
+page = document.querySelector('#page');
+
+btnDiv = document.querySelector('#btnDiv');
+
+btn = document.createElement('button');
+btn.setAttribute('id', 'btn');
+btn.textContent = 'PRESS ME'
+btnDiv.appendChild(btn);
+
 container = document.querySelector('#container');
 
-for (i = 1; i <= 256; i++) {
+for (i = 1; i <= 4; i++) {
     divi = 'div'+i;
     divName = divi
     console.log('divName is: '+divi);
     divi = document.createElement('div');
     divi.setAttribute('id',`${divName}`);
-    divi.textContent = 'hi.';
+    // divi.textContent = 'hi.';
     container.appendChild(divi);
 }
 
@@ -36,23 +45,38 @@ function createGrid() {
         console.log('divName is: '+divi);
         divi = document.createElement('div');
         divi.setAttribute('id',`${divName}`);
-        divi.textContent = 'hi.';
+        // divi.textContent = 'hi.';
         container.appendChild(divi);
     }
 
 }
 
-createGrid()
+// divs = document.querySelectorAll('div');
 
-divs = document.querySelectorAll('div');
-
-divs.forEach((div) => {
+// divs.forEach((div) => {
     
-    div.addEventListener('mouseenter', () => {
+//     div.addEventListener('mouseenter', () => {
 
-        div.style.cssText = 'color: hotpink; background: hotpink;';
+//         div.style.cssText = 'color: hotpink; background: hotpink;';
 
-    });
+//     });
 
-});
+// });
+
+btn.addEventListener('click', () => {
+
+    createGrid();
+
+    // divs = document.querySelectorAll('div');
+
+    // divs.forEach((div) => {
+    
+    //     div.addEventListener('mouseenter', () => {
+
+    //      div.style.cssText = 'color: hotpink; background: hotpink;';
+
+    //     });
+
+    // });
+})
 
