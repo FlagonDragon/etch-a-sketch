@@ -28,14 +28,6 @@ function clearNode(parentNode) {
 }
 
 function createGrid() {
-
-    divs = document.querySelectorAll('div');
-
-    divs.forEach((div) => {
-    
-        div.style.cssText = 'flex-basis: 33%;';
-
-    });
     
     do {
 
@@ -57,16 +49,6 @@ function createGrid() {
         container.appendChild(divi);
     }
 
-    divs = document.querySelectorAll('div');
-
-    divs.forEach((div) => {
-    
-        div.style.cssText = 'flex-basis: 33%;';
-
-    });
-
-    // basisPercent = 'flex-basis: 33%;'
-
 }
 
 btn.addEventListener('click', () => {
@@ -75,16 +57,16 @@ btn.addEventListener('click', () => {
 
     divs = document.querySelectorAll('div');
 
-    // divs.forEach((div) => {
+    divs.forEach((div) => {
 
-    //     div.style.flexBasis = '25%';
+        div.style.flexBasis = '6.25%';
     
-    //     div.addEventListener('mouseenter', () => {
+        div.addEventListener('mouseenter', () => {
 
-    //      div.style.cssText = 'color: hotpink; background: hotpink;';
+         div.style.cssText = 'color: hotpink; background: hotpink; flex-basis: 6.25%';
 
-    //     });
+        });
 
-    // });
+    });
 })
 
