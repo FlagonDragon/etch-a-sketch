@@ -28,6 +28,14 @@ function clearNode(parentNode) {
 }
 
 function createGrid() {
+
+    divs = document.querySelectorAll('div');
+
+    divs.forEach((div) => {
+    
+        div.style.cssText = 'flex-basis: 33%;';
+
+    });
     
     do {
 
@@ -45,31 +53,31 @@ function createGrid() {
         console.log('divName is: '+divi);
         divi = document.createElement('div');
         divi.setAttribute('id',`${divName}`);
-        // divi.textContent = 'hi.';
+        // divi.textContent = 'hi.';;
         container.appendChild(divi);
     }
 
-}
+    divs = document.querySelectorAll('div');
 
-// divs = document.querySelectorAll('div');
-
-// divs.forEach((div) => {
+    divs.forEach((div) => {
     
-//     div.addEventListener('mouseenter', () => {
+        div.style.cssText = 'flex-basis: 33%;';
 
-//         div.style.cssText = 'color: hotpink; background: hotpink;';
+    });
 
-//     });
+    // basisPercent = 'flex-basis: 33%;'
 
-// });
+}
 
 btn.addEventListener('click', () => {
 
     createGrid();
 
-    // divs = document.querySelectorAll('div');
+    divs = document.querySelectorAll('div');
 
     // divs.forEach((div) => {
+
+    //     div.style.flexBasis = '25%';
     
     //     div.addEventListener('mouseenter', () => {
 

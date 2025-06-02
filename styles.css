@@ -36,10 +36,9 @@
     border: 1px solid blue;
     width: 100px;
     height: 100px;
-    flex-basis: 6.25%;
 }
 
-/* #container div:hover {
+#container div:hover {
     background-color: hotpink;
     color: hotpink;
-} */
+}
