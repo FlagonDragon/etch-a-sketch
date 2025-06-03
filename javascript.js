@@ -51,19 +51,28 @@ function createGrid() {
 
 }
 
+
+
 btn.addEventListener('click', () => {
 
     createGrid();
 
     divs = document.querySelectorAll('div');
 
+
     divs.forEach((div) => {
 
-        div.style.flexBasis = '6.25%';
+        basisPercent = `${100/answer}%`;
+
+        console.log(basisPercent);
+        
+        div.style.flexBasis = `${basisPercent}`;
+
+        console.log(div.flexBasis);
     
         div.addEventListener('mouseenter', () => {
 
-         div.style.cssText = 'color: hotpink; background: hotpink; flex-basis: 6.25%';
+         div.style.cssText = `color: hotpink; background: hotpink; flex-basis: ${basisPercent};`
 
         });
 
