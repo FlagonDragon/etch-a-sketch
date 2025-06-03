@@ -63,12 +63,8 @@ btn.addEventListener('click', () => {
     divs.forEach((div) => {
 
         basisPercent = `${100/answer}%`;
-
-        console.log(basisPercent);
         
         div.style.flexBasis = `${basisPercent}`;
-
-        console.log(div.flexBasis);
     
         div.addEventListener('mouseenter', () => {
 
