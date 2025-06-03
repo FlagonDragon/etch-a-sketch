@@ -1,5 +1,3 @@
-page = document.querySelector('#page');
-
 btnDiv = document.querySelector('#btnDiv');
 
 btn = document.createElement('button');
@@ -9,15 +7,7 @@ btnDiv.appendChild(btn);
 
 container = document.querySelector('#container');
 
-for (i = 1; i <= 4; i++) {
-    divi = 'div'+i;
-    divName = divi
-    console.log('divName is: '+divi);
-    divi = document.createElement('div');
-    divi.setAttribute('id',`${divName}`);
-    // divi.textContent = 'hi.';
-    container.appendChild(divi);
-}
+// functions below
 
 function clearNode(parentNode) {
     while (parentNode.firstElementChild) {
@@ -31,13 +21,13 @@ function createGrid() {
     
     do {
 
-        answer = prompt('Please enter a number up to 100','')
+        answer = prompt('Please enter a number up to 100','');
 
     } while (!(answer > 0 && answer <= 100));
 
-    num = answer * answer
+    num = answer * answer;
 
-    clearNode(container)
+    clearNode(container);
 
     for (i = 1; i <= num; i++) {
         divi = 'div'+i;
@@ -45,20 +35,54 @@ function createGrid() {
         console.log('divName is: '+divi);
         divi = document.createElement('div');
         divi.setAttribute('id',`${divName}`);
-        // divi.textContent = 'hi.';;
+        container.appendChild(divi);
+    };
+
+};
+
+// functions above
+
+// 16x16 start below
+
+function createStart() {
+
+    for (i = 1; i <= 256; i++) {
+        divi = 'div'+i;
+        divName = divi
+        console.log('divName is: '+divi);
+        divi = document.createElement('div');
+        divi.setAttribute('id',`${divName}`);
+        divi.style.flexBasis = '6.25%';
         container.appendChild(divi);
     }
 
-}
+    myDivs = document.querySelectorAll('div');
 
+    myDivs.forEach((myDiv) => {
 
+        myDiv.addEventListener('mouseenter', () => {
+            
+            if (myDiv.id != 'btnDiv') {
+            myDiv.style.backgroundColor = "hotpink";
+            }
+
+        });
+
+    });
+
+};
+
+createStart();
+
+// 16x16 start above
+
+// button functionality below
 
 btn.addEventListener('click', () => {
 
     createGrid();
 
     divs = document.querySelectorAll('div');
-
 
     divs.forEach((div) => {
 
@@ -67,11 +91,12 @@ btn.addEventListener('click', () => {
         div.style.flexBasis = `${basisPercent}`;
     
         div.addEventListener('mouseenter', () => {
-
+        
+        if (div.id != 'btnDiv') {
          div.style.cssText = `color: hotpink; background: hotpink; flex-basis: ${basisPercent};`
+         }
 
         });
 
     });
-})
-
+});
