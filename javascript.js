@@ -32,24 +32,38 @@ function createGrid() {
     for (i = 1; i <= num; i++) {
         divi = 'div'+i;
         divName = divi
-        console.log('divName is: '+divi);
         divi = document.createElement('div');
         divi.setAttribute('id',`${divName}`);
+        divi.style.opacity = '1.0';
         container.appendChild(divi);
     };
 
 };
 
+function randomValue() {
+
+    return Math.floor(Math.random() * 255)
+
+}
+
+function randomRGB() {
+
+    return `rgb(${randomValue()},${randomValue()},${randomValue()})`;
+
+};
+
+
 // functions above
 
 // 16x16 start below
+
+gridTrue = false;
 
 function createStart() {
 
     for (i = 1; i <= 256; i++) {
         divi = 'div'+i;
         divName = divi
-        console.log('divName is: '+divi);
         divi = document.createElement('div');
         divi.setAttribute('id',`${divName}`);
         divi.style.flexBasis = '6.25%';
@@ -60,13 +74,16 @@ function createStart() {
 
     myDivs.forEach((myDiv) => {
 
-        myDiv.addEventListener('mouseenter', () => {
-            
-            if (myDiv.id != 'btnDiv') {
-            myDiv.style.backgroundColor = "hotpink";
-            }
+        if (gridTrue != true) {
 
-        });
+            myDiv.addEventListener('mouseenter', () => {
+                
+                if (myDiv.id != 'btnDiv' && gridTrue != true) {
+                myDiv.style.backgroundColor = "deeppink";
+                }
+
+            });
+        } else {}
 
     });
 
@@ -80,6 +97,8 @@ createStart();
 
 btn.addEventListener('click', () => {
 
+    gridTrue = true
+
     createGrid();
 
     divs = document.querySelectorAll('div');
@@ -89,12 +108,36 @@ btn.addEventListener('click', () => {
         basisPercent = `${100/answer}%`;
         
         div.style.flexBasis = `${basisPercent}`;
+
+        div.style.opacity = '1.0';
     
         div.addEventListener('mouseenter', () => {
         
-        if (div.id != 'btnDiv') {
-         div.style.cssText = `color: hotpink; background: hotpink; flex-basis: ${basisPercent};`
-         }
+            if (div.id != 'btnDiv' && div.id != 'container') {
+
+                gridTrue = true
+
+                computedStyle = getComputedStyle(div);
+
+                currentOpacity = Number(computedStyle.opacity);
+
+                newOpacity = `${currentOpacity - 0.1}`;
+
+                console.log(newOpacity);      
+
+                div.style.cssText = `background: ${randomRGB()}; flex-basis: ${basisPercent};`
+
+                div.style.opacity = newOpacity
+
+                // console.log(currentOpacity);
+
+                // console.log(newOpacity);
+                
+                // div.style.opacity = `${newOpacity}`;
+                
+
+
+            }
 
         });
 
