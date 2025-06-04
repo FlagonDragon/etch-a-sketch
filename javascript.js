@@ -55,6 +55,60 @@ function randomRGB() {
 
 // functions above
 
+// button functionality below
+
+btn.addEventListener('click', () => {
+
+    gridTrue = true;
+
+    createGrid();
+
+    divs = document.querySelectorAll('div');
+
+    divs.forEach((div) => {
+
+        gridTrue = true;
+
+        basisPercent = `${100/answer}%`;
+        
+        div.style.flexBasis = `${basisPercent}`;
+
+        div.style.opacity = '1.0';
+    
+        div.addEventListener('mouseenter', () => {
+        
+            if (div.id != 'btnDiv' && div.id != 'container') {
+
+                gridTrue = true;
+
+                // getComputedStyle is necessary to return current value of opacity
+                // storing value of object.style.opacity will give result null
+                // the reason is that it only provides current value of opacity that was set in-line
+
+                computedStyle = getComputedStyle(div);
+
+                currentOpacity = Number(computedStyle.opacity);
+
+                newOpacity = `${currentOpacity - 0.1}`;
+
+                console.log(newOpacity);      
+
+                div.style.cssText = `background: ${randomRGB()}; flex-basis: ${basisPercent};`
+
+                gridTrue = true;
+                div.style.opacity = newOpacity
+
+                gridTrue = true;
+            }
+gridTrue = true;
+        });
+gridTrue = true;
+    });
+gridTrue = true;
+});
+
+// button functionality above
+
 // 16x16 start below
 
 gridTrue = false;
@@ -74,16 +128,15 @@ function createStart() {
 
     myDivs.forEach((myDiv) => {
 
-        if (gridTrue != true) {
+        myDiv.addEventListener('mouseenter', () => {
+            
+            if (myDiv.id != 'btnDiv' && gridTrue === false) {
 
-            myDiv.addEventListener('mouseenter', () => {
-                
-                if (myDiv.id != 'btnDiv' && gridTrue != true) {
-                myDiv.style.backgroundColor = "deeppink";
-                }
+            myDiv.style.backgroundColor = "deeppink";
 
-            });
-        } else {}
+            } else {}
+
+        });
 
     });
 
@@ -93,53 +146,3 @@ createStart();
 
 // 16x16 start above
 
-// button functionality below
-
-btn.addEventListener('click', () => {
-
-    gridTrue = true
-
-    createGrid();
-
-    divs = document.querySelectorAll('div');
-
-    divs.forEach((div) => {
-
-        basisPercent = `${100/answer}%`;
-        
-        div.style.flexBasis = `${basisPercent}`;
-
-        div.style.opacity = '1.0';
-    
-        div.addEventListener('mouseenter', () => {
-        
-            if (div.id != 'btnDiv' && div.id != 'container') {
-
-                gridTrue = true
-
-                computedStyle = getComputedStyle(div);
-
-                currentOpacity = Number(computedStyle.opacity);
-
-                newOpacity = `${currentOpacity - 0.1}`;
-
-                console.log(newOpacity);      
-
-                div.style.cssText = `background: ${randomRGB()}; flex-basis: ${basisPercent};`
-
-                div.style.opacity = newOpacity
-
-                // console.log(currentOpacity);
-
-                // console.log(newOpacity);
-                
-                // div.style.opacity = `${newOpacity}`;
-                
-
-
-            }
-
-        });
-
-    });
-});
