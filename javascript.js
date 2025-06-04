@@ -34,6 +34,7 @@ function createGrid() {
         divName = divi
         divi = document.createElement('div');
         divi.setAttribute('id',`${divName}`);
+        divi.setAttribute('class', 'grid');
         divi.style.opacity = '1.0';
         container.appendChild(divi);
     };
@@ -59,27 +60,19 @@ function randomRGB() {
 
 btn.addEventListener('click', () => {
 
-    gridTrue = true;
-
     createGrid();
 
-    divs = document.querySelectorAll('div');
+    divs = document.querySelectorAll('.grid');
 
     divs.forEach((div) => {
-
-        gridTrue = true;
 
         basisPercent = `${100/answer}%`;
         
         div.style.flexBasis = `${basisPercent}`;
-
-        div.style.opacity = '1.0';
     
         div.addEventListener('mouseenter', () => {
         
             if (div.id != 'btnDiv' && div.id != 'container') {
-
-                gridTrue = true;
 
                 // getComputedStyle is necessary to return current value of opacity
                 // storing value of object.style.opacity will give result null
@@ -95,23 +88,16 @@ btn.addEventListener('click', () => {
 
                 div.style.cssText = `background: ${randomRGB()}; flex-basis: ${basisPercent};`
 
-                gridTrue = true;
                 div.style.opacity = newOpacity
 
-                gridTrue = true;
             }
-gridTrue = true;
         });
-gridTrue = true;
     });
-gridTrue = true;
 });
 
 // button functionality above
 
 // 16x16 start below
-
-gridTrue = false;
 
 function createStart() {
 
@@ -120,21 +106,18 @@ function createStart() {
         divName = divi
         divi = document.createElement('div');
         divi.setAttribute('id',`${divName}`);
+        divi.setAttribute('class', 'start');
         divi.style.flexBasis = '6.25%';
         container.appendChild(divi);
     }
 
-    myDivs = document.querySelectorAll('div');
+    myDivs = document.querySelectorAll('.start');
 
     myDivs.forEach((myDiv) => {
 
         myDiv.addEventListener('mouseenter', () => {
-            
-            if (myDiv.id != 'btnDiv' && gridTrue === false) {
 
             myDiv.style.backgroundColor = "deeppink";
-
-            } else {}
 
         });
 
